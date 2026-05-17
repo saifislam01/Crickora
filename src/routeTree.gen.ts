@@ -19,6 +19,8 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as TournamentsIdRouteImport } from './routes/tournaments.$id'
 import { Route as TeamsIdRouteImport } from './routes/teams.$id'
 import { Route as MatchesNewRouteImport } from './routes/matches.new'
+import { Route as MatchesIdRouteImport } from './routes/matches.$id'
+import { Route as LiveIdRouteImport } from './routes/live.$id'
 
 const TournamentsRoute = TournamentsRouteImport.update({
   id: '/tournaments',
@@ -70,6 +72,16 @@ const MatchesNewRoute = MatchesNewRouteImport.update({
   path: '/new',
   getParentRoute: () => MatchesRoute,
 } as any)
+const MatchesIdRoute = MatchesIdRouteImport.update({
+  id: '/$id',
+  path: '/$id',
+  getParentRoute: () => MatchesRoute,
+} as any)
+const LiveIdRoute = LiveIdRouteImport.update({
+  id: '/live/$id',
+  path: '/live/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -79,6 +91,8 @@ export interface FileRoutesByFullPath {
   '/players': typeof PlayersRoute
   '/teams': typeof TeamsRouteWithChildren
   '/tournaments': typeof TournamentsRouteWithChildren
+  '/live/$id': typeof LiveIdRoute
+  '/matches/$id': typeof MatchesIdRoute
   '/matches/new': typeof MatchesNewRoute
   '/teams/$id': typeof TeamsIdRoute
   '/tournaments/$id': typeof TournamentsIdRoute
@@ -91,6 +105,8 @@ export interface FileRoutesByTo {
   '/players': typeof PlayersRoute
   '/teams': typeof TeamsRouteWithChildren
   '/tournaments': typeof TournamentsRouteWithChildren
+  '/live/$id': typeof LiveIdRoute
+  '/matches/$id': typeof MatchesIdRoute
   '/matches/new': typeof MatchesNewRoute
   '/teams/$id': typeof TeamsIdRoute
   '/tournaments/$id': typeof TournamentsIdRoute
@@ -104,6 +120,8 @@ export interface FileRoutesById {
   '/players': typeof PlayersRoute
   '/teams': typeof TeamsRouteWithChildren
   '/tournaments': typeof TournamentsRouteWithChildren
+  '/live/$id': typeof LiveIdRoute
+  '/matches/$id': typeof MatchesIdRoute
   '/matches/new': typeof MatchesNewRoute
   '/teams/$id': typeof TeamsIdRoute
   '/tournaments/$id': typeof TournamentsIdRoute
@@ -118,6 +136,8 @@ export interface FileRouteTypes {
     | '/players'
     | '/teams'
     | '/tournaments'
+    | '/live/$id'
+    | '/matches/$id'
     | '/matches/new'
     | '/teams/$id'
     | '/tournaments/$id'
@@ -130,6 +150,8 @@ export interface FileRouteTypes {
     | '/players'
     | '/teams'
     | '/tournaments'
+    | '/live/$id'
+    | '/matches/$id'
     | '/matches/new'
     | '/teams/$id'
     | '/tournaments/$id'
@@ -142,6 +164,8 @@ export interface FileRouteTypes {
     | '/players'
     | '/teams'
     | '/tournaments'
+    | '/live/$id'
+    | '/matches/$id'
     | '/matches/new'
     | '/teams/$id'
     | '/tournaments/$id'
@@ -155,6 +179,7 @@ export interface RootRouteChildren {
   PlayersRoute: typeof PlayersRoute
   TeamsRoute: typeof TeamsRouteWithChildren
   TournamentsRoute: typeof TournamentsRouteWithChildren
+  LiveIdRoute: typeof LiveIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -229,14 +254,30 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MatchesNewRouteImport
       parentRoute: typeof MatchesRoute
     }
+    '/matches/$id': {
+      id: '/matches/$id'
+      path: '/$id'
+      fullPath: '/matches/$id'
+      preLoaderRoute: typeof MatchesIdRouteImport
+      parentRoute: typeof MatchesRoute
+    }
+    '/live/$id': {
+      id: '/live/$id'
+      path: '/live/$id'
+      fullPath: '/live/$id'
+      preLoaderRoute: typeof LiveIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 interface MatchesRouteChildren {
+  MatchesIdRoute: typeof MatchesIdRoute
   MatchesNewRoute: typeof MatchesNewRoute
 }
 
 const MatchesRouteChildren: MatchesRouteChildren = {
+  MatchesIdRoute: MatchesIdRoute,
   MatchesNewRoute: MatchesNewRoute,
 }
 
@@ -273,6 +314,7 @@ const rootRouteChildren: RootRouteChildren = {
   PlayersRoute: PlayersRoute,
   TeamsRoute: TeamsRouteWithChildren,
   TournamentsRoute: TournamentsRouteWithChildren,
+  LiveIdRoute: LiveIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
