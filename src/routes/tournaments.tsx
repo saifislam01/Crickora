@@ -89,7 +89,7 @@ function TournamentsPage() {
             </div>
             <div>
               <label className="text-sm font-medium">Format</label>
-              <select value={form.format} onChange={(e) => setForm({ ...form, format: e.target.value })} className="mt-1 w-full rounded-md border border-input bg-card px-3 py-2 text-sm">
+              <select value={form.format} onChange={(e) => setForm({ ...form, format: e.target.value as typeof form.format })} className="mt-1 w-full rounded-md border border-input bg-card px-3 py-2 text-sm">
                 <option value="round_robin">Round robin</option>
                 <option value="knockout">Knockout</option>
                 <option value="league">League</option>
