@@ -10,7 +10,7 @@ export const Route = createFileRoute("/tournaments")({ component: TournamentsPag
 function TournamentsPage() {
   const [items, setItems] = useState<any[]>([]);
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ name: "", format: "round_robin", overs_per_innings: 20, description: "" });
+  const [form, setForm] = useState<{ name: string; format: "round_robin" | "knockout" | "league"; overs_per_innings: number; description: string }>({ name: "", format: "round_robin", overs_per_innings: 20, description: "" });
   const [busy, setBusy] = useState(false);
 
   const load = async () => {
