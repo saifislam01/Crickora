@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "CrickArena — Free cricket scoring & league management" },
+      { title: "Crickora — Free cricket scoring & league management" },
       { name: "description", content: "Run tournaments, score matches ball-by-ball on mobile, and share public live scoreboards. Built for community and competitive cricket." },
     ],
   }),
@@ -19,7 +19,7 @@ function Landing() {
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
           <Link to="/" className="flex items-center gap-2">
             <div className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground font-display font-bold">C</div>
-            <span className="font-display text-lg font-bold">CrickArena</span>
+            <span className="font-display text-lg font-bold">Crickora</span>
           </Link>
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
             <a href="#features" className="hover:text-foreground">Features</a>
@@ -173,7 +173,7 @@ function Landing() {
       </section>
 
       <footer className="border-t py-8 text-center text-sm text-muted-foreground">
-        © {new Date().getFullYear()} CrickArena. Built for cricket communities.
+        © {new Date().getFullYear()} Crickora. Built for cricket communities.
       </footer>
     </div>
   );
