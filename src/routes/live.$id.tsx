@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/live/$id")({
   component: PublicLive,
-  head: () => ({ meta: [{ title: "Live cricket • CrickArena" }, { name: "description", content: "Follow this match ball-by-ball, live." }] }),
+  head: () => ({ meta: [{ title: "Live cricket • Crickora" }, { name: "description", content: "Follow this match ball-by-ball, live." }] }),
 });
 
 function PublicLive() {

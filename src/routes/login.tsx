@@ -68,20 +68,20 @@ function LoginPage() {
       <div className="hidden md:flex bg-primary text-primary-foreground p-12 flex-col justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="grid h-8 w-8 place-items-center rounded-md bg-destructive text-destructive-foreground font-display font-bold">C</div>
-          <span className="font-display text-lg font-bold">CrickArena</span>
+          <span className="font-display text-lg font-bold">Crickora</span>
         </Link>
         <div>
           <h2 className="font-display text-4xl font-bold leading-tight">Score every ball. <br/>Share every moment.</h2>
           <p className="mt-4 text-primary-foreground/70 max-w-md">A free, professional cricket league platform for community and competitive cricket.</p>
         </div>
-        <div className="text-xs opacity-60">© {new Date().getFullYear()} CrickArena</div>
+        <div className="text-xs opacity-60">© {new Date().getFullYear()} Crickora</div>
       </div>
 
       <div className="flex items-center justify-center p-6 md:p-12">
         <div className="w-full max-w-sm">
           <div className="md:hidden mb-8 flex items-center gap-2">
             <div className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground font-display font-bold">C</div>
-            <span className="font-display text-lg font-bold">CrickArena</span>
+            <span className="font-display text-lg font-bold">Crickora</span>
           </div>
           <h1 className="font-display text-3xl font-bold text-foreground">
             {mode === "signin" ? "Welcome back" : "Create account"}

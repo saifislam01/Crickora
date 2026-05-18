@@ -31,7 +31,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       <aside className="hidden md:flex md:flex-col fixed inset-y-0 left-0 z-40 w-64 bg-sidebar text-sidebar-foreground md:static md:flex-shrink-0">
         <div className="flex h-16 items-center gap-2 border-b border-sidebar-border px-5">
           <div className="grid h-9 w-9 place-items-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground font-display font-bold">C</div>
-          <span className="font-display text-lg font-bold tracking-tight">CrickArena</span>
+          <span className="font-display text-lg font-bold tracking-tight">Crickora</span>
         </div>
         <nav className="flex-1 space-y-1 p-3">
           {nav.map((n) => {
@@ -70,7 +70,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
         <header className="md:hidden sticky top-0 z-20 flex h-14 items-center justify-between border-b bg-primary text-primary-foreground px-4">
           <Link to="/dashboard" className="flex items-center gap-2">
             <div className="grid h-8 w-8 place-items-center rounded-md bg-primary-foreground/15 font-display font-bold">C</div>
-            <span className="font-display text-base font-bold tracking-tight">CrickArena</span>
+            <span className="font-display text-base font-bold tracking-tight">Crickora</span>
           </Link>
           <button
             onClick={async () => { await supabase.auth.signOut(); navigate({ to: "/login" }); }}
